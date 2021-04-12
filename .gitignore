@@ -1,15 +1,15 @@
-ddr5thmix-solo-src/build
-ddr5thmix-solo-src/build_soloio
-ddr5thmix-solo-src/tools/build/*
-ddr5thmix-solo-src/tools/py/*.c*
-ddr5thmix-solo-src/tools/py/*.html
-ddr5thmix-solo-src/data_raw
-!ddr5thmix-solo-src/data_raw/deleteme.txt
-ddr5thmix-solo-src/data_source
-!ddr5thmix-solo-src/data_source/deleteme.txt
-ddr5thmix-solo-src/data_modified_raw
-ddr5thmix-solo-src/\#*
-ddr5thmix-solo-src/stepx_*.sh
+build
+build_soloio
+tools/build/*
+tools/py/*.c*
+tools/py/*.html
+data_raw
+!data_raw/deleteme.txt
+data_source
+!data_source/deleteme.txt
+data_modified_raw
+\#*
+stepx_*.sh
 
 
 *.iso
