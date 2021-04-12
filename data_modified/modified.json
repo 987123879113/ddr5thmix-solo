@@ -1,0 +1,58 @@
+[
+    {
+        "flag_loc": 1,
+        "flag_comp": 1,
+        "flag_enc": 1,
+        "filename": "data/mdb/mdb.bin",
+        "patch": "mdb.diff",
+        "patch_format": "bsdiff4"
+    },
+    {
+        "flag_loc": 0,
+        "flag_comp": 1,
+        "flag_enc": 0,
+        "filename": "data/gpct/select/sslob_25.cmt",
+        "patch": "sslob_25.diff",
+        "patch_format": "bsdiff4"
+    },
+    {
+        "flag_loc": 0,
+        "flag_comp": 1,
+        "flag_enc": 0,
+        "filename": "data/gpct/select/sslop_25.cmt",
+        "patch": "sslop_25.diff",
+        "patch_format": "bsdiff4"
+    },
+    {
+        "flag_loc": 0,
+        "flag_comp": 1,
+        "flag_enc": 0,
+        "filename": "data/lang/japa/sstxt_25.cmt",
+        "patch": "sstxt_25.diff",
+        "patch_format": "bsdiff4"
+    },
+    {
+        "flag_loc": 0,
+        "flag_comp": 1,
+        "flag_enc": 0,
+        "filename": "data/gpct/select/cslbk_16.cmt",
+        "patch": "cslbk_16.diff",
+        "patch_format": "bsdiff4"
+    },
+    {
+        "flag_loc": 0,
+        "flag_comp": 1,
+        "flag_enc": 0,
+        "filename": "data/lang/japa/title_25.cmt",
+        "patch": "title_25.diff",
+        "patch_format": "bsdiff4"
+    },
+    {
+        "flag_loc": 0,
+        "flag_comp": 1,
+        "flag_enc": 0,
+        "filename": "data/gpct/select/selic_25.cmt",
+        "patch": "selic_25.diff",
+        "patch_format": "bsdiff4"
+    }
+]
