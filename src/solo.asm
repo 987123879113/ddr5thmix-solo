@@ -329,18 +329,18 @@ InputTestMenuEnd:
     ; Service Switch Text
     li a2, 0x12
 .org 0x8003c164
-    ; Service Switch Text
+    ; Service Switch ON/OFF
     li a2, 0x12
 
 .org 0x8003c194
-    ; Coin Mech ON/OFF
+    ; Coin Mech Text
     li a2, 0x1a
 .org 0x8003c1b4
     ; Coin Mech ON/OFF
     li a2, 0x1a
 
 .org 0x8003c1f4
-    ; Coin Mech ON/OFF
+    ; Coin Mech Text
     li a2, 0x2a
 .org 0x8003c244
     ; Coin Mech ON/OFF
