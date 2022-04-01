@@ -474,3 +474,62 @@ InputTestMenuEnd:
 .org 0x8001668c
     .dw 0x00000002
     .dw 0x00001000
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+; Lights activation functions for panel steppy
+
+; Turn on all body lights when requested to isntead of 1P/2P side only.
+.org 0x8009a304
+    beq v0, zero, 0x8009a30c
+.org 0x8009a328
+    bne s0, v0, 0x8009a330
+
+; Turn on extra2 (left back) when left is pressed.
+.org 0x8009a0c8
+    li a0, 0x7
+
+; Turn on extra4 (right back) when right is pressed.
+.org 0x8009a078
+    li a0, 0x5
+.org 0x8009a094
+    li a0, 0x5
+
+; Turn on extra1 (left front) when up-left is pressed.
+.org 0x8009a19c
+    li a0, 0x6
+.org 0x8009a1b8
+    li a0, 0x6
+.org 0x8009a1d0
+    li a0, 0x6
+.org 0x8009a1ec
+    li a0, 0x6
+
+; Turn on extra3 (right front) when up-right is pressed.
+.org 0x8009a118
+    li a0, 0x4
+.org 0x8009a134
+    li a0, 0x4
+.org 0x8009a14c
+    li a0, 0x4
+.org 0x8009a168
+    li a0, 0x4
+
+; Turn on extra1 and 3 (both forward lights) when up is pressed.
+.org 0x8009a028
+    li a0, 0x6
+.org 0x8009a044
+    li a0, 0x4
+.org 0x8009a01c
+    beq v0, zero, 0x8009a024
+.org 0x8009a038
+    bne s0, v0, 0x8009a040
+
+; Turn on extra2 and 4 (both back lights) when down is pressed.
+.org 0x80099fd8
+    li a0, 0x7
+.org 0x80099ff4
+    li a0, 0x5
+.org 0x80099fcc
+    beq v0, zero, 0x80099fd4
+.org 0x80099fe8
+    bne s0, v0, 0x80099ff0

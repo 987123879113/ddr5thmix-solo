@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -e
+
 mkdir -p build
 
 cp -r data_source/* build
