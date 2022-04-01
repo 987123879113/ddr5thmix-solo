@@ -14,6 +14,7 @@ stepx_*.sh
 
 *.iso
 *.zip
+*.swp
 
 
 # Byte-compiled / optimized / DLL files

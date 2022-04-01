@@ -345,3 +345,132 @@ InputTestMenuEnd:
 .org 0x8003c244
     ; Coin Mech ON/OFF
     li a2, 0x2a
+
+.org 0x80012d30
+    ; Don't display ULDR next to ON/OFF for IO test since Solo has no IO board.
+    .asciiz "%s"
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+; Lights Test Menu
+
+; Fixes unable to select individual lights for test.
+.org 0x80039f44
+    jal is_1p_start_pressed
+
+; Mapping from which test light entry to which actual light to activate.
+.org 0x80012acc
+    ; Body left/center/right lights.
+    .dw 12
+    .dw 9
+    .dw 8
+    ; Pad extra1/extra2/extra3/extra4 lights.
+    .dw 6
+    .dw 7
+    .dw 4
+    .dw 5
+    ; Start button light.
+    .dw 14
+    ; Speaker light.
+    .dw 16
+
+; Labels for the lights test options.
+.org 0x80012b08
+    .asciiz "BODY LEFT"
+.org 0x80012b14
+    .asciiz "BODY CENTER"
+.org 0x80012b24
+    .asciiz "BODY RIGHT"
+.org 0x80012b34
+    .asciiz "EXTRA1"
+.org 0x80012b44
+    .asciiz "EXTRA2"
+.org 0x80012b50
+    .asciiz "EXTRA3"
+.org 0x80012b60
+    .asciiz "EXTRA4"
+.org 0x80012b70
+    .asciiz "START"
+.org 0x80012b80
+    .asciiz "SPEAKER"
+
+; Skip displaying labels for lamps we don't have.
+.org 0x8003a19c
+    nop
+.org 0x8003a1c0
+    nop
+.org 0x8003a1e4
+    nop
+.org 0x8003a208
+    nop
+.org 0x8003a22c
+    nop
+.org 0x8003a250
+    nop
+
+; Reposition "ALL" and "EXIT" according to the new layout.
+.org 0x8003a25c
+    li a2, 0x0
+.org 0x8003a280
+    li a2, 0x10
+
+; Reference the correct cursor value for "ALL" and "EXIT".
+.org 0x8003a270
+    lw a0, 0x3c(sp)
+.org 0x8003a294
+    lw a0, 0x40(sp)
+
+; Check for the correct cursor value to display green "current light" indicator
+; if we are doing the "ALL" check.
+.org 0x8003a010
+    li v0, 0x9
+
+; Wrap cursor around from top to bottom correctly.
+.org 0x80039e14
+    li v0, 0xA
+
+; Wrap cursor around from bottom to top correctly.
+.org 0x80039e44
+    slti v0, v0, 0xB
+
+; Run all test when "ALL" is selected.
+.org 0x80039e78
+    li v0, 0x9
+.org 0x80039f60
+    li v0, 0x9
+
+; Exit when "EXIT" is selected.
+.org 0x80039f04
+    li v0, 0xA
+.org 0x80039f50
+    li v0, 0xA
+
+; Initialize the all test frame counter to account for us only having 9 lights
+; instead of 15, accounting for 60 frames per light being lit.
+.org 0x80039f6c
+    li v0, 0x21C
+.org 0x80039ea4
+    li v0, 0x21B
+.org 0x80039ebc
+    li a1, 0x8
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+; Lights mappings
+
+; Map body right lower to body left, right higher and left lower to body center, and left higher to body right.
+.org 0x8001666c
+    .dw 0x00000002
+    .dw 0x00000200
+.org 0x80016664
+    .dw 0x00000002
+    .dw 0x00000400
+
+; Map start 1p to correct solo start lights.
+.org 0x8001667c
+    .dw 0x00000002
+    .dw 0x00000100
+
+; Fix "speaker" light output to point at solo speaker neons.
+.org 0x8001668c
+    .dw 0x00000002
+    .dw 0x00001000
