@@ -354,9 +354,12 @@ InputTestMenuEnd:
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; Lights Test Menu
 
-; Fixes unable to select individual lights for test.
+; Fixes unable to select individual lights for test. The original "is held" function
+; is nop'd out above, so we must give a negative index to this function to turn it
+; into a held function.
 .org 0x80039f44
     jal is_1p_start_pressed
+    li a0, -0x4
 
 ; Mapping from which test light entry to which actual light to activate.
 .org 0x80012acc
