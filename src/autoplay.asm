@@ -47,7 +47,9 @@ OnText:
     nop
 ComputeAutoplayFinished:
 
-.org 0x80012b8c
+.org 0x800102d0
+.dw 0 ; Force the string to terminate
+
 ; Display "ON" or "OFF" depending on whether autoplay is on or off, on the DIP switch test menu.
 ComputeAutoplayOnOff:
     andi v0, s3, 0x1
