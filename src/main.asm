@@ -39,6 +39,12 @@
 ;  0 = Off
 ;  1 = On
 .definelabel DISABLE_CHEERING, 0
+
+; Swap EXTRA1/2/3/4 mapping. Some cabinets start with EXTRA1 as the front left, then
+; EXTRA2 as the back left, then EXTRA3 as the front right, and finally EXTRA4 as the
+; back right. If your cabinet is like this, set the below label to 1. If your cabinet
+; goes top to bottom right to left, then leave this set to 0.
+.definelabel SWAP_EXTRA_LIGHTS, 0
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 

@@ -7,8 +7,8 @@ All source code is included.
 
 
 ## KNOWN BUGS/ISSUES
-- Lights are not mapped correctly on solo cabinet (probably won't fix but I will accept a working PR)
 - Edits are bugged in 6 panel mode (won't fix)
+- Only one of the two sensors in each panel is read (won't fix)
 
 ## Instructions
 Note: **YOU MUST PROVIDE YOUR OWN DATA!**
@@ -36,9 +36,9 @@ If you are building using *nix, you must compile the required Cython modules:
 
 ## Notes
 - Dipswitch 1 can be toggled on/off to enable/disable autoplay (even on real hardware)
-- There are various flags in [src/main.asm](https://github.com/987123879113/sys573mods/blob/main/ddr5thmix-solo-src/src/main.asm) that can be modified such as `FORCE_UNLOCK`, `SOLO_MODE`, `AUTOPLAY_ENABLED`, `AUTOPLAY_TIMING`, `DISABLE_ANNOUNCER`, and `DISABLE_CHEERING`.
+- There are various flags in [src/main.asm](https://github.com/987123879113/sys573mods/blob/main/ddr5thmix-solo-src/src/main.asm) that can be modified such as `FORCE_UNLOCK`, `SOLO_MODE`, `AUTOPLAY_ENABLED`, `AUTOPLAY_TIMING`, `DISABLE_ANNOUNCER`, `DISABLE_CHEERING`, and `SWAP_EXTRA_LIGHTS`.
 
 ## Thanks
 - @WannyTiggah for the edited title screen and icon edits
 - @SakamotoNeko13 for the edited 4PANEL/6PANEL graphics on the style select screen
-- @dragonminded for testing with a real Solo cabinet
+- @dragonminded for testing with a real Solo cabinet as well as lights mapping, lights test menu and autoplay display on dip test menu
