@@ -13,7 +13,6 @@
 .definelabel SOLO_MODE, 1
 
 ; Use solo cabinet I/O
-; Still experimental so may not work properly on real hardware
 ;  0 = Off
 ;  1 = On
 ; Can be defined in the ASM directly but it's easier for the build scripts to pass "-definelabel SOLO_IO 1" to armips
@@ -46,6 +45,17 @@
 ; goes top to bottom right to left, then leave this set to 0.
 .definelabel SWAP_EXTRA_LIGHTS, 0
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+
+; Common definitions used by various included pieces below.
+.org 0x8002b8e0
+    is_1p_panel_left_pressed:
+.org 0x8002b904
+    is_1p_panel_right_pressed:
+.org 0x8002b808
+    is_1p_start_pressed:
+.org 0x80041744
+    draw_text:
 
 
 .if DISABLE_ANNOUNCER == 1
