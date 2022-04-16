@@ -5,7 +5,6 @@ The game contains left over code that supports 6 panel gameplay and a large numb
 
 All source code is included.
 
-
 ## KNOWN BUGS/ISSUES
 - Edits are bugged in 6 panel mode (won't fix)
 - Only one of the two sensors in each panel is read (won't fix)
@@ -33,10 +32,21 @@ If you are building using *nix, you must compile the required Cython modules:
 2. `python3 -m pip install -r requirements.txt`
 2. `python3 setup.py build_ext --inplace`
 
-
 ## Notes
 - Dipswitch 1 can be toggled on/off to enable/disable autoplay (even on real hardware)
 - There are various flags in [src/main.asm](https://github.com/987123879113/sys573mods/blob/main/ddr5thmix-solo-src/src/main.asm) that can be modified such as `FORCE_UNLOCK`, `SOLO_MODE`, `AUTOPLAY_ENABLED`, `AUTOPLAY_TIMING`, `DISABLE_ANNOUNCER`, `DISABLE_CHEERING`, and `SWAP_EXTRA_LIGHTS`.
+
+## Hardware Sensor Fix
+If you are running this on an actual Solo cabinet and find that the pad is not as sensitive as you would like due to the game reading only one of the two sensors per arrow, you can apply the following hardware fix to bridge each pair of sensors together. Get a JAMMA fingerboard and wire every connection straight through so that JAMMA pin 1 on the 573 side connects to JAMMA pin 1 on the connector side, and so on. Then, once every pin is connected straight through, bridge the following pins together:
+
+- Up-Left - X, 22
+- Up - 18, Z
+- Down - 19, 24
+- Left - 20, 23
+- Right - 21, aa
+- Up-Right - Y, bb
+
+Now, when in the IO test menu or in-game, both sensors in each arrow will register and you should notice your sensitivity improving greatly.
 
 ## Thanks
 - @WannyTiggah for the edited title screen and icon edits
